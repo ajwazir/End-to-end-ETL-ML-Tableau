@@ -1,0 +1,35 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: An AWS Serverless Specification template describing your function.
+Resources:
+  dailyweatherforecast:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      CodeUri: .
+      Description: ''
+      MemorySize: 128
+      Timeout: 300
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.11
+      Architectures:
+        - x86_64
+      EventInvokeConfig:
+        MaximumEventAgeInSeconds: 21600
+        MaximumRetryAttempts: 2
+      EphemeralStorage:
+        Size: 512
+      Events:
+        Schedule1:
+          Type: Schedule
+          Properties:
+            Schedule: cron(0 0 * * ? *)
+      Layers:
+        - 'arn:aws:lambda:eu-north-1:336392948345:layer:AWSSDKPandas-Python311:1'
+        - 'arn:aws:lambda:eu-north-1:770693421928:layer:Klayers-p310-requests:3'
+        - 'arn:aws:lambda:eu-north-1:770693421928:layer:Klayers-p39-SQLAlchemy:14'
+      Role: 'arn:aws:iam::815054803082:role/LambdaAdminAccess'
+      RuntimeManagementConfig:
+        UpdateRuntimeOn: Auto
+      SnapStart:
+        ApplyOn: None
+      PackageType: Zip
