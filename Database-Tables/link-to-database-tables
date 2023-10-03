@@ -1,2 +1,19 @@
-Here is the link to the database tables: https://drive.google.com/drive/folders/1ipKj5yxPpBpIyMSQqjWn3oJQXZYWcvni?usp=sharing
-change
+The link to the database tables: https://drive.google.com/drive/folders/1ipKj5yxPpBpIyMSQqjWn3oJQXZYWcvni?usp=sharing
+
+Here is the list of file zou will find under the link above:
+
+cities_data.csv
+current_weather_daily_20230927.csv
+current_weather_hourly_20230927.csv
+Database_schema.png
+future_weather_jam.csv
+future_weather_jam_mpi.csv
+future_weather_mpi.csv
+historical_weather.csv
+historical_weather_cls_ele.csv
+Koeppen-Geiger-ASCII.txt
+
+Commit message
+
+Co-authored-by: Jenny657 <135337242+Jenny657@users.noreply.github.com>
+Co-authored-by: Ajwazir <135338873+ajwazir@users.noreply.github.com>
