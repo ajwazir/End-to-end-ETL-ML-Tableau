@@ -23,6 +23,8 @@ All data is stored in a relational database containing the following tables:
 * `current_weather_daily_20230927.csv` (weather forecast from 2023/09/27 - daily) and
 * `current_weather_hourly_20230927.csv` (weather forecast from 2023/09/27 - hourly).
 
+Since the storage on Github is limited I opted to provide the above mentioned *.csv files through a link, which can be found here: `Database-Tables/link-to-database-tables`
+
 ## 1.1. Prerequisites
 To run this project, you need an AWS account to run the project in the cloud.
 
@@ -41,20 +43,13 @@ Or just import all the prerequistites from `ETL-Pipeline/Lambda-Function/daily_w
 ## 1.2. Usage
 
 ### 1.2.1. Setting up AWS Lambda functions
-- I recommend creating separate AWS Lambda functions for different update schedules:
-  - Update city and airport information - only needs to run if a new city was added to the database manually.
-  - Update city information - should be updated yearly; older information will be stored with the respective year.
-  - Update weather and arrival flights - should be updated on a daily basis to retrieve information for the next day.
+I recommend creating a separate AWS Lambda function only for the current weather forecast, as this will be updated on a daily basis.
 
 Create the respective Lambda functions and copy the appropriate code from the ZIP-files in the folder /`Lambda functions` (don't forget to insert your MySQL endpoint and API credentials).
 
-The ZIP file contain the different code for the Lambda functions:
+The ZIP file contain the code for the Lambda function:
 
-- `static_tables.zip` creates the DataFrames for the tables `city_table`, `airport_table` and `city_airport_table` and loads the data into the AWS MySQL database, which is created by executing `set_up_project_5_aws.sql` in MySQL Workbench
-- `city_data_web_scraping.zip` web scrapes data for the cities in the the list from Wikipedia, creates a DataFrame for the table `city_data_table` and loads the data into the AWS MySQL database, which is created by executing `set_up_project_5_aws.sql` in MySQL Workbench
-- `weather_data_api_call.zip` creates the DataFrames for the table `weather_table` and loads the data into the AWS MySQL database, which is created by executing `set_up_project_5_aws.sql` in MySQL Workbench
-- `arrivals_data_api_call.zip` creates the DataFrames for the table `arrivals_table` and loads the data into the AWS MySQL database, which is created by executing `set_up_project_5_aws.sql` in MySQL Workbench
-- `all_in_one_weather_arrivals.zip` creates the DataFrames for the tables `arrivals_table` and `weather_table` and loads the data into the AWS MySQL database, which is created by executing `set_up_project_5_aws.sql` in MySQL Workbench <-- this Lambda function is a combination of `arrivals_data_api_call.zip` and `weather_data_api_call.zip` and does exactly the same as the two seperate functions. As the data extracted with these functions is to be updated daily, you can run this one function instead of the two separate ones.
+- `ETL-Pipeline/Lambda-Function/daily_weather_forecast.zip` creates the DataFrames for the tables `current_weather_daily.csv`and `current_weather_hourly.csv` and loads the data into the AWS MySQL database, which is created by executing `set_up_project_5_aws.sql` in MySQL Workbench
 
 - Add your layer (see Prerequisites) to the function.
 - Create an EventBridge schedule. There is a short tutorial [here](https://www.youtube.com/watch?v=lSqd6DVWZ9o&t).
