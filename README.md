@@ -87,8 +87,8 @@ The model can be used to make predictions on future weather data for the target 
 
 For usage instructions and further details, please refer to the code files:
 
-- [FP_for_upload_final.ipynb](FP_for_upload_final.ipynb): Jupyter Notebook containing the code.
-- [FP_for_upload_final.py](FP_for_upload_final.py): Python script version of the code.
+- [LSTM_Climate.ipynb](Machine Learning/LSTM_Climate.ipynb): Jupyter Notebook containing the code.
+- [LSTM_Climate.py](LSTM_Climate): Python script version of the code.
 - [requirements.txt](requirements.txt): Required packages and dependencies.
 - [best_model.h5](best_model.h5): The trained model.
 - [cities_data_cls_ele.csv](cities_data_cls_ele.csv): Historical weather data CSV file.
