@@ -7,7 +7,7 @@ The historical weather data (from 1940/01/01 onwards) will then be used to train
 
 ## 1. ETL Pipeleine
 
-To create an automated ETL pipeline on the cloud using Python and MySQL on AWS (RDS, Lambda, and EventBridge). The project is designed to gather information on the geographic location and population of cities in Germany by 
+To create an automated ETL pipeline on the cloud using Python and MySQL on AWS (RDS, Lambda, and EventBridge). The project is designed to gather weather data through API calls: 
 
 * API calls for [historical weather data](https://open-meteo.com/en/docs/historical-weather-api), [current weather forecast](https://open-meteo.com/en/docs) and [future weather data](https://open-meteo.com/en/docs/climate-api)
 
@@ -15,13 +15,13 @@ In the folder /`ETL-Pipeleine` you will find the python code notebook for the da
 
 The folder `/Database-Tables` contains the file `jam_database_setup_short.sql` which sets up the SQL database on AWS RDS. you will also find the file `jam_database_user_setup_short.sql` as an example on how to set up users for your AWS RDS instance without going through AWS IAM. 
 All data is stored in a relational database containing the following tables: 
-* `cities_data.csv`,
-* `future_weather_jam.csv`,
-* `future_weather_mpi.csv`,
-* `future_weather_jam_mpi.csv`,
-* `historical_weather.csv`, as well as
-* `current_weather_daily_20230927.csv` and
-* `current_weather_hourly_20230927.csv`.
+* `cities_data.csv` (data such as longitude, latitude and population for over 44.000 cities),
+* `future_weather_jam.csv` (predicted future weather data from our trained model),
+* `future_weather_mpi.csv` (predicted future weather data from MPI-ESM1.2),
+* `future_weather_jam_mpi.csv` (predicted future weather data from MPI-ESM1.2 and our trained model) ,
+* `historical_weather.csv` (historical weather data from 1940/01/01 until 2022/12/31), as well as
+* `current_weather_daily_20230927.csv` (weather forecast from 2023/09/27 - daily) and
+* `current_weather_hourly_20230927.csv` (weather forecast from 2023/09/27 - hourly).
 
 ## 1.1. Prerequisites
 To run this project, you need an API key for the [Weather API - 5-day forecast](https://openweathermap.org/forecast5) as well as [AeroDataBox](https://rapidapi.com/aedbx-aedbx/api/aerodatabox/). Free options with monthly limited requests are available. 
