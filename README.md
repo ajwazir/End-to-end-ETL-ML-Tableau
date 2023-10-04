@@ -24,9 +24,7 @@ All data is stored in a relational database containing the following tables:
 * `current_weather_hourly_20230927.csv` (weather forecast from 2023/09/27 - hourly).
 
 ## 1.1. Prerequisites
-To run this project, you need an API key for the [Weather API - 5-day forecast](https://openweathermap.org/forecast5) as well as [AeroDataBox](https://rapidapi.com/aedbx-aedbx/api/aerodatabox/). Free options with monthly limited requests are available. 
-
-You also need an AWS account to run the project in the cloud.
+To run this project, you need an AWS account to run the project in the cloud.
 
 __WARNING:__ Free tier options are available for AWS, but costs may occur when choosing the wrong payment plan or exceeding limits. __I am not responsible for any costs.__
 
@@ -36,8 +34,9 @@ Create a new layers in AWS Lambda with the following ARNs:
 
 * `pandas` --> arn:aws:lambda:eu-north-1:336392948345:layer:AWSSDKPandas-Python310:3
 * `requests` --> arn:aws:lambda:eu-north-1:770693421928:layer:Klayers-p310-requests:3
-* `BeautifulSoup` --> arn:aws:lambda:eu-north-1:770693421928:layer:Klayers-p310-beautifulsoup4:1
-* `SQLAlchemy` --> arn:aws:lambda:eu-north-1:770693421928:layer:Klayers-p39-SQLAlchemy:14 
+* `SQLAlchemy` --> arn:aws:lambda:eu-north-1:770693421928:layer:Klayers-p39-SQLAlchemy:14
+
+Or just import all the prerequistites from `ETL-Pipeline/Lambda-Function/daily_weather_forecast.yaml`
 
 ## 1.2. Usage
 
