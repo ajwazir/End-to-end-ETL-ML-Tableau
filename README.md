@@ -11,9 +11,9 @@ To create an automated ETL pipeline on the cloud using Python and MySQL on AWS (
 
 * API calls for [historical weather data](https://open-meteo.com/en/docs/historical-weather-api), [current weather forecast](https://open-meteo.com/en/docs) and [future weather data](https://open-meteo.com/en/docs/climate-api)
 
-In the folder /`ETL-Pipeleine` you will find the python code notebook for the data extraction, transformation and loading into MySQL instance on AWS RDS, as well as comments to the code.
+In the folder [/`ETL-Pipeleine`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/tree/main/ETL-Pipeline) you will find the python code notebook for the data extraction, transformation and loading into MySQL instance on AWS RDS, as well as comments to the code.
 
-The folder `/Database-Tables` contains the file `jam_database_setup_short.sql` which sets up the SQL database on AWS RDS. you will also find the file `jam_database_user_setup_short.sql` as an example on how to set up users for your AWS RDS instance without going through AWS IAM. 
+The folder [`/Database-Tables`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/tree/main/Database-Tables) contains the file [`jam_database_setup_short.sql`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Database-Tables/jam_database_setup_short.sql) which sets up the SQL database on AWS RDS. you will also find the file [`jam_database_user_setup_short.sql`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Database-Tables/jam_database_user_setup_short.sql) as an example on how to set up users for your AWS RDS instance without going through AWS IAM. 
 All data is stored in a relational database containing the following tables: 
 * [`cities_data.csv`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Database-Tables/cities_data.csv) (data such as longitude, latitude and population for over 44.000 cities),
 * [`future_weather_jam.csv`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Database-Tables/future_weather_jam.csv) (predicted future weather data from our trained model),
@@ -22,8 +22,6 @@ All data is stored in a relational database containing the following tables:
 * [`historical_weather.csv`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Database-Tables/historical_weather.csv) (historical weather data from 1940/01/01 until 2022/12/31), as well as
 * [`current_weather_daily_20230927.csv`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Database-Tables/current_weather_daily_20230927.csv) (weather forecast from 2023/09/27 - daily) and
 * [`current_weather_hourly_20230927.csv`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Database-Tables/current_weather_hourly_20230927.csv) (weather forecast from 2023/09/27 - hourly).
-
-All above mentioned *.csv files can be found here: `Database-Tables/link-to-database-tables`
 
 ## 1.1. Prerequisites
 To run this project, you need an AWS account to run the project in the cloud.
@@ -38,18 +36,18 @@ Create a new layers in AWS Lambda with the following ARNs:
 * `requests` --> arn:aws:lambda:eu-north-1:770693421928:layer:Klayers-p310-requests:3
 * `SQLAlchemy` --> arn:aws:lambda:eu-north-1:770693421928:layer:Klayers-p39-SQLAlchemy:14
 
-Or just import all the prerequistites from `ETL-Pipeline/Lambda-Function/daily_weather_forecast.yaml`
+Or just import all the prerequistites from [`ETL-Pipeline/Lambda-Function/daily_weather_forecast.yaml`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/ETL-Pipeline/Lambda-Function/daily_weather_forecast.yaml)
 
 ## 1.2. Usage
 
 ### 1.2.1. Setting up AWS Lambda functions
 I recommend creating a separate AWS Lambda function only for the current weather forecast, as this will be updated on a daily basis.
 
-Create the respective Lambda functions and copy the appropriate code from the ZIP-files in the folder /`Lambda functions` (don't forget to insert your MySQL endpoint and API credentials).
+Create the respective Lambda functions and copy the appropriate code from the ZIP-files in the folder [/`Lambda functions`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/tree/main/ETL-Pipeline/Lambda-Function) (don't forget to insert your MySQL endpoint and API credentials).
 
 The ZIP file contain the code for the Lambda function:
 
-- `ETL-Pipeline/Lambda-Function/daily_weather_forecast.zip` creates the DataFrames for the tables `current_weather_daily.csv`and `current_weather_hourly.csv` and loads the data into the AWS MySQL database, which is created by executing `set_up_project_5_aws.sql` in MySQL Workbench
+[`ETL-Pipeline/Lambda-Function/daily_weather_forecast.zip`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/ETL-Pipeline/Lambda-Function/daily_weather_forecast.zip) creates the DataFrames for the tables `current_weather_daily.csv`and `current_weather_hourly.csv` and loads the data into the AWS MySQL database, which is created by executing [`jam_database_setup_short.sql`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Database-Tables/jam_database_setup_short.sql) in MySQL Workbench.
 
 - Add your layer (see Prerequisites) to the function.
 - Create an EventBridge schedule. There is a short tutorial [here](https://www.youtube.com/watch?v=lSqd6DVWZ9o&t).
