@@ -9,7 +9,7 @@ The historical weather data (from 1940/01/01 onwards) will then be used to train
 
 To create an automated ETL pipeline on the cloud using Python and MySQL on AWS (RDS, Lambda, and EventBridge). The project is designed to gather weather data through API calls: 
 
-* API calls for [historical weather data](https://open-meteo.com/en/docs/historical-weather-api), [current weather forecast](https://open-meteo.com/en/docs) and [future weather data](https://open-meteo.com/en/docs/climate-api)
+* API calls for [`historical weather data`](https://open-meteo.com/en/docs/historical-weather-api), [`current weather forecast`](https://open-meteo.com/en/docs) and [`future weather data`](https://open-meteo.com/en/docs/climate-api)
 
 In the folder [/`ETL-Pipeleine`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/tree/main/ETL-Pipeline) you will find the python code notebook for the data extraction, transformation and loading into MySQL instance on AWS RDS, as well as comments to the code.
 
@@ -84,12 +84,12 @@ The code also provides functionality to evaluate the model's performance using v
 The model can be used to make predictions on future weather data for the target cities.
 
 For usage instructions and further details, please refer to the code files:
-- [LSTM_Climate.ipynb](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Machine%20Learning/LSTM_Climate.ipynb): Jupyter Notebook containing the code.
-- [LSTM_Climate.py](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Machine%20Learning/LSTM_Climate.py): Python script version of the code.
-- [requirements.txt](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Machine%20Learning/requirements.txt): Required packages and dependencies.
-- [best_model.h5](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Machine%20Learning/best_model.h5): The trained model.
-- [cities_data_cls_ele.csv](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Machine%20Learning/cities_data_cls_ele.csv): World cities data CSV file.
-- [historical.csv](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Machine%20Learning/historical.xlsx): Historical weather data CSV file.
+- [`LSTM_Climate.ipynb`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Machine%20Learning/LSTM_Climate.ipynb): Jupyter Notebook containing the code.
+- [`LSTM_Climate.py`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Machine%20Learning/LSTM_Climate.py): Python script version of the code.
+- [`requirements.txt`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Machine%20Learning/requirements.txt): Required packages and dependencies.
+- [`best_model.h5`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Machine%20Learning/best_model.h5): The trained model.
+- [`cities_data_cls_ele.csv`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Machine%20Learning/cities_data_cls_ele.csv): World cities data CSV file.
+- [`historical.csv`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Machine%20Learning/historical.xlsx): Historical weather data CSV file.
 
 Please refer to these files for implementation details and usage instructions.
 
@@ -97,6 +97,24 @@ Please refer to these files for implementation details and usage instructions.
 ## 3. Tableau Dashboard for Weather Data
 
 _Version: Tableau Desktop 2023.2.1_
+
+## 3.1. Usage 
+
+In order to build the dashboard you will need to load the following table into Tableau:
+
+ 
+* [`cities_data.csv`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Database-Tables/cities_data.csv) (data such as longitude, latitude and population for over 44.000 cities),
+* [`future_weather_jam.csv`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Database-Tables/future_weather_jam.csv) (predicted future weather data from our trained model),
+* [`future_weather_mpi.csv`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Database-Tables/future_weather_mpi.csv) (predicted future weather data from MPI-ESM1.2),
+* [`future_weather_jam_mpi.csv`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Database-Tables/future_weather_jam_mpi.csv) (predicted future weather data from MPI-ESM1.2 and our trained model) ,
+* [`historical_weather.csv`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Database-Tables/historical_weather.csv) (historical weather data from 1940/01/01 until 2022/12/31), as well as
+
+You will also need the data from your own `current_weather_daily.csv` extracted, tranaformed and loaded into you SQL instance throught your own AWS Lambda function. Or else you can use our weather data here:
+
+* [`current_weather_daily_20230927.csv`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Database-Tables/current_weather_daily_20230927.csv) (weather forecast from 2023/09/27 - daily) and
+* [`current_weather_hourly_20230927.csv`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Database-Tables/current_weather_hourly_20230927.csv) (weather forecast from 2023/09/27 - hourly).
+
+Once you have connected the table to each other in accordance with the [`snowflake scheme`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Database-Tables/Database_schema.png) you can load the [`our Dashboard`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Tableau-Dashboard/weather_predict_5_sept.twb) in your Tableau and use it. 
 
 The interactive dashboard offers a comprehensive view of weather conditions, providing valuable insight.
 
@@ -114,4 +132,3 @@ Diving deeper, the bottom part of the dashboard sets our weather forecast apart 
 
 This dashboard offers a unique perspective on weather data, allowing you to compare current conditions, historical trends, and future forecasts seamlessly in one place. 
 For usage instructions and more information, please refer to the Tableau Desktop 2023.2.1 documentation.
-
