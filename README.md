@@ -15,15 +15,15 @@ In the folder /`ETL-Pipeleine` you will find the python code notebook for the da
 
 The folder `/Database-Tables` contains the file `jam_database_setup_short.sql` which sets up the SQL database on AWS RDS. you will also find the file `jam_database_user_setup_short.sql` as an example on how to set up users for your AWS RDS instance without going through AWS IAM. 
 All data is stored in a relational database containing the following tables: 
-* `cities_data.csv` (data such as longitude, latitude and population for over 44.000 cities),
-* `future_weather_jam.csv` (predicted future weather data from our trained model),
-* `future_weather_mpi.csv` (predicted future weather data from MPI-ESM1.2),
-* `future_weather_jam_mpi.csv` (predicted future weather data from MPI-ESM1.2 and our trained model) ,
-* `historical_weather.csv` (historical weather data from 1940/01/01 until 2022/12/31), as well as
-* `current_weather_daily_20230927.csv` (weather forecast from 2023/09/27 - daily) and
-* `current_weather_hourly_20230927.csv` (weather forecast from 2023/09/27 - hourly).
+* [`cities_data.csv`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Database-Tables/cities_data.csv) (data such as longitude, latitude and population for over 44.000 cities),
+* [`future_weather_jam.csv`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Database-Tables/future_weather_jam.csv) (predicted future weather data from our trained model),
+* [`future_weather_mpi.csv`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Database-Tables/future_weather_mpi.csv) (predicted future weather data from MPI-ESM1.2),
+* [`future_weather_jam_mpi.csv`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Database-Tables/future_weather_jam_mpi.csv) (predicted future weather data from MPI-ESM1.2 and our trained model) ,
+* [`historical_weather.csv`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Database-Tables/historical_weather.csv) (historical weather data from 1940/01/01 until 2022/12/31), as well as
+* [`current_weather_daily_20230927.csv`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Database-Tables/current_weather_daily_20230927.csv) (weather forecast from 2023/09/27 - daily) and
+* [`current_weather_hourly_20230927.csv`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Database-Tables/current_weather_hourly_20230927.csv) (weather forecast from 2023/09/27 - hourly).
 
-Since the storage on Github is limited I opted to provide the above mentioned *.csv files through a link, which can be found here: `Database-Tables/link-to-database-tables`
+All above mentioned *.csv files can be found here: `Database-Tables/link-to-database-tables`
 
 ## 1.1. Prerequisites
 To run this project, you need an AWS account to run the project in the cloud.
