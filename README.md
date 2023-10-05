@@ -114,7 +114,7 @@ You will also need the data from your own `current_weather_daily.csv` extracted,
 * [`current_weather_daily_20230927.csv`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Database-Tables/current_weather_daily_20230927.csv) (weather forecast from 2023/09/27 - daily) and
 * [`current_weather_hourly_20230927.csv`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Database-Tables/current_weather_hourly_20230927.csv) (weather forecast from 2023/09/27 - hourly).
 
-Once you have connected the table to each other in accordance with the [`snowflake scheme`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Database-Tables/Database_schema.png) you can load the [`our Dashboard`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Tableau-Dashboard/weather_predict_5_sept.twb) in your Tableau and use it. 
+Once you have connected the table to each other in accordance with the [`snowflake schema`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Database-Tables/Database_schema.png) you can load the [`our Dashboard`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Tableau-Dashboard/weather_predict_5_sept.twb) in your Tableau and use it. 
 
 The interactive dashboard offers a comprehensive view of weather conditions, providing valuable insight.
 
