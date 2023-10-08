@@ -88,7 +88,7 @@ For usage instructions and further details, please refer to the code and data fi
 - [`LSTM_Climate.py`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Machine%20Learning/LSTM_Climate.py): Python script version of the code.
 - [`requirements.txt`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Machine%20Learning/requirements.txt): Required packages and dependencies.
 - [`best_model.h5`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Machine%20Learning/best_model.h5): The trained model.
-- [`44000_world_cities_data_cls_ele.csv`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Machine%20Learning/44000_world_cities_data_cls_ele.csv): World cities data CSV file (**Note: this data include all major cities of the world with with general info along with koppen-geiger climate class and elevation data**).
+- [`44000_world_cities_data_cls_ele.csv`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Machine%20Learning/44000_world_cities_data_cls_ele.csv): World cities data CSV file (**Note: this data include all major cities of the world with general info along with koppen-geiger climate class and elevation data**).
 - [`historical.csv`](https://github.com/MarcusK2010/End-to-end-ETL-ML-Tableau/blob/main/Machine%20Learning/historical.xlsx): Historical weather data CSV file.
 
 Please refer to these files for implementation details and usage instructions.
